@@ -15,11 +15,11 @@ insert' :: Ord a => a -> Tree a -> Tree a
 insert' x t =
     _insert' t id
   where
-    _insert' Empty f = f (T Empty x Empty)
+    _insert' Empty f = f (T Empty x Empty)
     _insert' (T l n r) f
-            | x < n     = _insert' l $ f . (\lt -> T lt n r)
-            | x > n     = _insert' r $ f . (\rt -> T l n rt)
-            | otherwise = t
+            | x < n     = _insert' l $ f . (\lt -> T lt n r)
+            | x > n     = _insert' r $ f . (\rt -> T l n rt)
+            | otherwise = t
 
 tree = insert 5 $ insert 7 $ insert 6 $
        insert 3 $ insert 1 $ insert 2 $
